@@ -57,7 +57,9 @@ enum SecurityFlags
 };
 
 // GCC have alternative #pragma pack(N) syntax and old gcc version not support pack(push,N), also any gcc version not support it at some paltform
-#if defined( __GNUC__ )
+#if defined(__GNUC__) && defined(__APPLE__)
+#pragma pack()
+#elif defined(__GNUC__)
 #pragma pack(1)
 #else
 #pragma pack(push,1)
